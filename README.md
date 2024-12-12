@@ -44,7 +44,7 @@ http://localhost:3000/api
 
 Example Request/Response for Each Endpoint
 1. Fetch All Tasks
-Endpoint: GET /task - http://localhost:3000/api/task/
+Endpoint: GET /task - http://localhost:3000/api/task/all-tasks
 Description: Fetches all tasks in the database.
 
 Req Body:
@@ -175,6 +175,39 @@ Example Response:
     "message": "Task deleted successfully"
 }
 
+7. Pagination for `GET /tasks`.
+Endpoint GET /task - http://localhost:3000/api/task/?page=1&limit=2
+Description: Get tasks by page and tasks limit
+Example Request:
+json
+No request body required.
+
+Example Response:
+{
+    "status": "success",
+    "page": 1,
+    "limit": 2,
+    "totalPages": 3,
+    "totalTasks": 6,
+    "tasks": [
+        {
+            "_id": "675863074398785d9be2ca48",
+            "title": "finish backend API",
+            "description": "today is last deadline of finishing backedn task apis",
+            "completed": false,
+            "createdAt": "2024-12-10T15:49:27.561Z",
+            "__v": 0
+        },
+        {
+            "_id": "6759bfb4aec9d623c332c674",
+            "title": "new feature as per figma",
+            "description": "feature must follow the new figma design ",
+            "completed": false,
+            "createdAt": "2024-12-11T16:37:08.321Z",
+            "__v": 0
+        }
+    ]
+}
 
 
 # Notes
